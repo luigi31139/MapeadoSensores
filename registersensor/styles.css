@@ -1,0 +1,51 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#map {
+    margin: 30px 30px;
+    height: 100%; 
+    width: 100%;
+    border-radius: 20px;
+}
+
+.mapa{
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    gap: 20px;
+}
+
+.button{
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#sensorForm {
+    width: 250px;
+    /*top right bottom left*/
+    margin: 25px 20px 0 0;
+}
+
+#sensorForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}

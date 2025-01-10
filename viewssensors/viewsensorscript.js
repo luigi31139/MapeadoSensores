@@ -33,6 +33,9 @@ async function initMap() {
                     position: userLocation,
                     map: map,
                     title: "Your Location",
+                    icon: {
+                        url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    }
                 });
             },
             () => {
@@ -48,7 +51,7 @@ async function initMap() {
     .then(data => {
         const lines = data.split('\n');
         lines.forEach(line => {
-            const [lat, lng, wtrlvl, nombre] = line.split(',');
+            const [id, nombre, lat, lng, wtrlvl, meassure] = line.split(',');
             let position = { lat: parseFloat(lat), lng: parseFloat(lng) };
             let marker = new AdvancedMarkerElement({
                 position: position,
@@ -57,7 +60,7 @@ async function initMap() {
             });
 
             let infoWindow = new google.maps.InfoWindow({
-                content: `<div><strong>${nombre}</strong><br>Lat: ${lat}<br>Lng: ${lng}<br>Nivel de Agua promedio: ${wtrlvl/1000} mts</div>`
+                content: `<div><strong>${nombre}</strong><br>Lat: ${lat}<br>Lng: ${lng}<br>Nivel de Agua promedio: ${wtrlvl/1000} mts <br>Ultima lectura: ${meassure/1000} mts</div>`
             });
 
             marker.addListener('click', () => {

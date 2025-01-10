@@ -14,6 +14,10 @@ function initMap() {
                     lng: position.coords.longitude,
                 };
 
+                // Set the values to the elements with IDs 'lat' and 'lng'
+                document.getElementById("lat").value = userLocation.lat;
+                document.getElementById("lng").value = userLocation.lng;
+
                 // Center the map to the user's location
                 map.setCenter(userLocation);
                 map.setZoom(12);
@@ -37,10 +41,11 @@ function initMap() {
     }
 
     function clearInputFields() {
-        document.getElementById("nombre").value = "";
-        document.getElementById("wtrlvl").value = "";
+        document.getElementById("snsrid").value = "";
+        document.getElementById("username").value = "";
         document.getElementById("lat").value = "";
         document.getElementById("lng").value = "";
+        document.getElementById("contact").value = "";
     }
 
     // Clear input fields on page load
@@ -65,10 +70,7 @@ function initMap() {
 
             marker.addListener('click', () => {
                 infoWindow.open(map, marker);
-                document.getElementById("nombre").value = nombre;
-                document.getElementById("wtrlvl").value = wtrlvl/1000 + " mts";
-                document.getElementById("lat").value = lat;
-                document.getElementById("lng").value = lng;
+                document.getElementById("snsrid").value = id;
             });
         });
     })
@@ -84,25 +86,6 @@ map.addListener('click', function (event) {
         lastMarker.setMap(null);
     }
 
-    // Crear un nuevo marcador en la ubicación clicada
-    lastMarker = new google.maps.Marker({
-        position: clickedLocation,
-        map: map,
-    });
-
-    lastMarker.addListener('rightclick', function () {
-        lastMarker.setMap(null);
-        lastMarker = null;
-        document.getElementById("nombre").value = "";
-        document.getElementById("wtrlvl").value = "";
-        document.getElementById("lat").value = "";
-        document.getElementById("lng").value = "";
-    });
-
-    document.getElementById("nombre").value = "";
-    document.getElementById("wtrlvl").value = "";
-    document.getElementById("lat").value = clickedLocation.lat();
-    document.getElementById("lng").value = clickedLocation.lng();
 });
 
 }
@@ -113,24 +96,25 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
 
         const sensorData = {
-            nombre: document.getElementById('nombre').value,
+            snsrid: document.getElementById('snsrid').value,
+            username: document.getElementById('username').value,
             lat: document.getElementById('lat').value,
             lng: document.getElementById('lng').value,
-            wtrlvl: (document.getElementById('wtrlvl').value)*1000
+            contact: '+52'+document.getElementById('contact').value,
         };
 
-        const csvData = `nombre,lat,lng,wtrlvl\n${sensorData.nombre},${sensorData.lat},${sensorData.lng},${sensorData.wtrlvl}`;
+        const csvData = `snsrid,username,userlat,userlng,usernumber\n${sensorData.snsrid},${sensorData.username},${sensorData.lat},${sensorData.lng},${sensorData.contact}`;
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://localhost/proyects/MapaDeSensores/php/regsensor.php', true);
+        xhr.open('POST', 'http://localhost/proyects/MapaDeSensores/php/regusers.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                    alert('Sensor registrado exitosamente');
+                    alert('Usuario registrado exitosamente');
                 } else {
-                    alert('Error al registrar el sensor');
+                    alert('Error al registrar el Usuario');
                 }
             }
         };

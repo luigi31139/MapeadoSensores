@@ -23,12 +23,13 @@ if (isset($_POST['csv'])) {
     $header = str_getcsv(array_shift($lines));
     $data = str_getcsv(array_shift($lines));
 
-    $nombre = $data[0];
-    $lat = $data[1];
-    $lng = $data[2];
-    $wtrlvl = $data[3];
+    $snsrid = $data[0];
+    $username = $data[1];
+    $userlat = $data[2];
+    $userlng = $data[3];
+    $usernumber = $data[4];
 
-    $sql = "INSERT INTO rgsensor (nombre, lat, lng, wtrlvl) VALUES ('$nombre', '$lat', '$lng', '$wtrlvl')";
+    $sql = "INSERT INTO rgusers (snsrid, username, userlat, userlng, usernumber) VALUES ('$snsrid','$username','$userlat', '$userlng', '$usernumber')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";

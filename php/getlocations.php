@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *'); // Allow requests from any origin
+header('Access-Control-Allow-Origin: *'); 
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: text/plain');
@@ -9,23 +9,40 @@ $username = "root";
 $password = "";
 $dbname = "sensors";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT lat, lng, wtrlvl, nombre FROM rgsensor";
+$sql = "
+SELECT 
+    rgsensor.*, 
+    s.meassure
+FROM 
+    rgsensor
+LEFT JOIN 
+    (SELECT snsrid, MAX(readdate) AS max_readdate
+     FROM sensorreads
+     GROUP BY snsrid
+    ) AS latest
+ON rgsensor.id = latest.snsrid
+LEFT JOIN 
+    sensorreads AS s
+ON s.snsrid = latest.snsrid AND s.readdate = latest.max_readdate
+";
+
+
 $result = $conn->query($sql);
 
 $coordinates = array();
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $coordinates[] = $row['lat'] . "," . $row['lng'] . "," . $row['wtrlvl'] . "," . $row['nombre'];
+        
+        $coordinates[] = $row['id'] . "," . $row['nombre'] . "," . $row['lat'] . "," . $row['lng'] . "," . $row['wtrlvl'] . "," . $row['meassure'];
     }
 }
+
 
 $conn->close();
 

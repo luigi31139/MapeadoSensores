@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Sensor | FloodWatch</title>
+    <link rel="stylesheet" href="../assets/css/registersensor.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RpJbv5dT_tOERoPU7UGvpy2J1bOxE_E"></script>
+    <script src="../assets/js/regsensors.js"></script>
+  </head>
+  <body>
+    <div class="water-bg"></div>
+    <div class="ripple-bg"></div>
+    <div id="app">
+      <header class="title-container">
+        <div class="title-wrapper">
+          <h1 class="main-title">Registrar Sensor</h1>
+          <div class="title-underline"></div>
+        </div>
+        <div class="wave-text">
+          Seleccione la ubicación del sensor en el mapa
+        </div>
+      </header>
+
+      <main class="content-container">
+        <nav class="navigation">
+          <a href="/index.html" class="back-button">
+            <span class="button-content">
+              <i class="icon">⬅️</i>
+              <span>Regresar a Inicio</span>
+            </span>
+          </a>
+        </nav>
+
+        <div class="map-form-container">
+          <div class="map-container">
+            <div class="map-overlay"></div>
+            <div id="map"></div>
+          </div>
+
+          <form id="sensorForm" class="sensor-form">
+            <div class="form-group">
+              <label for="nombre">Nombre del Sensor</label>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Ingrese nombre del sensor"
+                  required
+                />
+                <div class="input-focus-effect"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lat">Latitud</label>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="lat"
+                  name="lat"
+                  placeholder="Seleccione en el mapa"
+                  required
+                  readonly
+                />
+                <div class="input-focus-effect"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lng">Longitud</label>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="lng"
+                  name="lng"
+                  placeholder="Seleccione en el mapa"
+                  required
+                  readonly
+                />
+                <div class="input-focus-effect"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="wtrlvl">Nivel de Agua (metros)</label>
+              <div class="input-wrapper">
+                <input
+                  type="number"
+                  id="wtrlvl"
+                  name="wtrlvl"
+                  placeholder="Ingrese el nivel del agua"
+                  step="0.01"
+                  required
+                />
+                <div class="input-focus-effect"></div>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-button">
+              <span class="button-content">
+                <i class="icon">📡</i>
+                <span>Registrar Sensor</span>
+              </span>
+              <div class="button-effect"></div>
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

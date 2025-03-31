@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FloodWatch</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <main>
-        <a href="registersensor/registersensor.html" class="button">Registrar Sensor</a>
-        <a href="viewssensors/viewsensors.html" class="button">Mostrar Sensores</a>
-        <a href="registerUsers/reguser.html" class="button">Registrar Para Recibir Alertas</a>
-    </main>
-</body>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="water-bg"></div>
+    <div id="app">
+      <header class="title-container">
+        <h1 class="main-title">FloodWatch</h1>
+        <div class="wave-text">Sistema de Monitoreo de Inundaciones</div>
+      </header>
+
+      <main class="button-container">
+        <a href="registersensor/registersensor.html" class="animated-button">
+          <span class="button-content">
+            <i class="icon">📡</i>
+            Registrar Sensor
+          </span>
+        </a>
+        <a href="viewssensors/viewsensors.html" class="animated-button">
+          <span class="button-content">
+            <i class="icon">📊</i>
+            Mostrar Sensores
+          </span>
+        </a>
+        <a href="registerUsers/reguser.html" class="animated-button">
+          <span class="button-content">
+            <i class="icon">🔔</i>
+            Registrar Para Recibir Alertas
+          </span>
+        </a>
+      </main>
+    </div>
+  </body>
 </html>

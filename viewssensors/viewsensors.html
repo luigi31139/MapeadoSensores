@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Sensores</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa de Sensores | FloodWatch</title>
+    <link rel="stylesheet" href="../assets/css/viewssensor.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RpJbv5dT_tOERoPU7UGvpy2J1bOxE_E"></script>
+    <script src="../assets/js/viewsensorscript.js"></script>
+  </head>
+  <body>
+    <div class="water-bg"></div>
+    <div class="ripple-bg"></div>
+    <div id="app">
+      <header class="title-container">
+        <div class="title-wrapper">
+          <h1 class="main-title">Sensores En Servicio</h1>
+          <div class="title-underline"></div>
+        </div>
+        <div class="wave-text">
+          Monitoreo en tiempo real de los sensores activos
+        </div>
+      </header>
 
-<h2>Sensores En Servicio</h2>
-<a href="/index.html" class="button">Regresar A Inicio</a>
-<div id="map"></div>
+      <main class="content-container">
+        <nav class="navigation">
+          <a href="/index.html" class="back-button">
+            <span class="button-content">
+              <i class="icon">⬅️</i>
+              <span>Regresar a Inicio</span>
+            </span>
+          </a>
+        </nav>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RpJbv5dT_tOERoPU7UGvpy2J1bOxE_E"></script>
-
-<script src="viewsensorscript.js"></script>
-
-</body>
+        <div class="map-wrapper">
+          <div class="map-container">
+            <div class="map-overlay"></div>
+            <div id="map"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

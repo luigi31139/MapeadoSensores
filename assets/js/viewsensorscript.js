@@ -60,7 +60,7 @@ async function initMap() {
             });
 
             let infoWindow = new google.maps.InfoWindow({
-                content: `<div><strong>${nombre}</strong><br>Lat: ${lat}<br>Lng: ${lng}<br>Nivel de Agua promedio: ${wtrlvl/1000} mts <br>Ultima lectura: ${meassure/1000} mts</div>`
+                content: `<div style="color: black;"><strong>${nombre}</strong><br>Lat: ${lat}<br>Lng: ${lng}<br>Nivel de Agua promedio: ${wtrlvl/1000} mts <br>Ultima lectura: ${meassure/1000} mts</div>`
             });
 
             marker.addListener('click', () => {

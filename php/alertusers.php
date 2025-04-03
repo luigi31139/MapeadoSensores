@@ -5,12 +5,10 @@ if (!isset($usernumbers) || empty($usernumbers)) {
 }
 
 
-$account_sid = "AC55fc1b52f7f1679b8c50b71ef37e34e5";
-$auth_token = "559cac9092d533fdf15917e4d31e1b29";
-$twilio_number = "+15704389991"; 
 
 
-$message = "Alert: A sensor measurement exceeded the threshold.";
+
+$message = "PELIGRO!!!! Posible Inundacion Detectada en Tu Area. Por favor, toma precauciones y mantente seguro.";
 
 
 $url = "https://api.twilio.com/2010-04-01/Accounts/$account_sid/Messages.json";

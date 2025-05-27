@@ -29,7 +29,7 @@ if (isset($_POST['csv'])) {
     $userlng = $data[3];
     $usernumber = $data[4];
 
-    $sql = "INSERT INTO rgusers (snsrid, username, userlat, userlng, usernumber) VALUES ('$snsrid','$username','$userlat', '$userlng', '$usernumber')";
+    $sql = "INSERT INTO rgusersweb (snsrid, username, userlat, userlng, usernumber) VALUES ('$snsrid','$username','$userlat', '$userlng', '$usernumber')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";

@@ -51,7 +51,7 @@ async function initMap() {
     .then(data => {
         const lines = data.split('\n');
         lines.forEach(line => {
-            const [id, nombre, lat, lng, wtrlvl, meassure] = line.split(',');
+            const [id, nombre, lat, lng, wtrlvl, meassure, readdate, readtime] = line.split(',');
             let position = { lat: parseFloat(lat), lng: parseFloat(lng) };
             let marker = new AdvancedMarkerElement({
                 position: position,
@@ -60,7 +60,7 @@ async function initMap() {
             });
 
             let infoWindow = new google.maps.InfoWindow({
-                content: `<div style="color: black;"><strong>${nombre}</strong><br>Lat: ${lat}<br>Lng: ${lng}<br>Nivel de Agua promedio: ${wtrlvl/1000} mts <br>Ultima lectura: ${meassure/1000} mts</div>`
+                content: `<div style="color: black;"><strong>${nombre}</strong><br>Lat: ${lat}<br>Lng: ${lng}<br>Nivel de Agua promedio: ${wtrlvl/1000} mts <br>Ultima lectura: ${meassure/1000} mts <br> Tomada: ${readdate} a las ${readtime}</div>`
             });
 
             marker.addListener('click', () => {

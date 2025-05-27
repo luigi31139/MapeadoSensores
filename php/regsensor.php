@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "sensors";
+$dbname = "u404093559_sensors";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,7 +31,7 @@ if (isset($_POST['csv'])) {
     $sql = "INSERT INTO rgsensor (nombre, lat, lng, wtrlvl) VALUES ('$nombre', '$lat', '$lng', '$wtrlvl')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "Nuevo Sensor registrado correctamente";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

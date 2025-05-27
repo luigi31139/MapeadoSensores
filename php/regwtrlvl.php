@@ -3,7 +3,7 @@ date_default_timezone_set('America/Mexico_City');
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "sensors";
+$dbname = "u404093559_sensors";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);

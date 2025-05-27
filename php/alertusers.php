@@ -5,7 +5,9 @@ if (!isset($usernumbers) || empty($usernumbers)) {
 }
 
 
-
+$account_sid = "";
+$auth_token = "";
+$twilio_number = "+15704389991"; 
 
 
 $message = "PELIGRO!!!! Posible Inundacion Detectada en Tu Area. Por favor, toma precauciones y mantente seguro.";
